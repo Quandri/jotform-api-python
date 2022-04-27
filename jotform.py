@@ -61,7 +61,7 @@ class JotformAPIClient:
             'Accept-Charset': 'ISO-8859-1,utf-8;q=0.7,*;q=0.3',
             'Accept-Encoding': 'none',
             'Accept-Language': 'en-US,en;q=0.8',
-            'Connection': 'keep-alive',``
+            'Connection': 'keep-alive',
         }
 
         if (method == 'GET'):
