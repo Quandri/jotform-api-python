@@ -1,6 +1,6 @@
 import pytest
 import object_file
-import helpers
+import jotform.helpers as helpers
 
 
 @pytest.fixture

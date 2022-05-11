@@ -1,7 +1,7 @@
 """A module that contains helper functions for JotForm API"""
 
 # Libraries
-import jotform
+from jotform.JotformAPIClient import JotformAPIClient
 
 # ------------------------------------------------------------------------------------
 
@@ -20,7 +20,7 @@ def pull_submissions(API, filter_array, limit=0, order_by=None, offset=0):
     Returns:
         list: List of submissions dictionaries.
     """
-    jotformAPIClient = jotform.JotformAPIClient(API)
+    jotformAPIClient = JotformAPIClient(API)
     submissions = jotformAPIClient.get_submissions(
         offset=offset, limit=limit, filterArray=filter_array, order_by=order_by
     )

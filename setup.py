@@ -7,7 +7,7 @@ setup(
     description="JotForm API - Python Client",
     author="JotForm",
     author_email="api@jotform.com",
-    py_modules=["jotform"],
+    
     packages=find_packages(),
     package_data={"": ["*.png"]},
     install_requires=[
