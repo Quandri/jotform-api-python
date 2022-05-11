@@ -1,9 +1,9 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="jotform-quandri",
+    name="jotform",
     url="https://github.com/Quandri/jotform-api-python/",
-    version="1.2",
+    version="1.1",
     description="JotForm API - Python Client",
     author="JotForm",
     author_email="api@jotform.com",
