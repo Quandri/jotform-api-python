@@ -51,6 +51,7 @@ def reformat_submission_list(submission_list):
     new_submission_list = []
     for submission in submission_list:
         submission_data = {}
+        submission_data['created_at'] = submission['created_at']
         for answer in submission["answers"].values():
             if "answer" in answer and "name" in answer:
                 # Column Name i.e "name":"column8"
