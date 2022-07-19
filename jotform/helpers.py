@@ -6,7 +6,9 @@ from jotform.JotformAPIClient import JotformAPIClient
 # ------------------------------------------------------------------------------------
 
 
-def pull_submissions(API, filter_array, limit=0, order_by=None, offset=0):
+def pull_submissions(
+    API, filter_array, limit=0, order_by=None, offset=0, mark_as_read=True
+):
     """Send a request to JotForm API and receive a response the given folder ID.
 
     Args:
@@ -24,6 +26,10 @@ def pull_submissions(API, filter_array, limit=0, order_by=None, offset=0):
     submissions = jotformAPIClient.get_submissions(
         offset=offset, limit=limit, filterArray=filter_array, order_by=order_by
     )
+
+    if mark_as_read:
+        for submission in submissions:
+            jotformAPIClient.edit_submission(id=submission["id"], submission={"new": 0})
 
     return submissions
 
@@ -51,7 +57,7 @@ def reformat_submission_list(submission_list):
     new_submission_list = []
     for submission in submission_list:
         submission_data = {}
-        submission_data['created_at'] = submission['created_at']
+        submission_data["created_at"] = submission["created_at"]
         for answer in submission["answers"].values():
             if "answer" in answer and "name" in answer:
                 # Column Name i.e "name":"column8"
