@@ -7,7 +7,7 @@ from jotform.JotformAPIClient import JotformAPIClient
 
 
 def pull_submissions(
-    API, filter_array, limit=0, order_by=None, offset=0, mark_as_read=True
+    API, filter_array, limit=0, order_by=None, offset=0, mark_as_read=False
 ):
     """Send a request to JotForm API and receive a response the given folder ID.
 
@@ -58,6 +58,7 @@ def reformat_submission_list(submission_list):
     for submission in submission_list:
         submission_data = {}
         submission_data["created_at"] = submission["created_at"]
+        submission_data["submission_id"] = submission["id"]
         for answer in submission["answers"].values():
             if "answer" in answer and "name" in answer:
                 # Column Name i.e "name":"column8"
